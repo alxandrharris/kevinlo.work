@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Lo | Global Finance Transformation Leader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        bgDark: '#0a0a0c',
+                        cyanAccent: '#00f3ff',
+                        goldAccent: '#ffd700',
+                        slateGray: '#708090'
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0c;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+       
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00f3ff; }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass:hover {
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.05);
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Map Pulses */
+        .map-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+       
+        /* Gradient Text */
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #00f3ff 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #ffd700 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyanAccent selection:text-bgDark">
+
+    <!-- Interactive Background Canvas -->
+    <canvas id="particleCanvas" class="fixed inset-0 z-0 pointer-events-none opacity-40"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b-0 border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-heading font-bold tracking-wider text-white">
+                KEVIN<span class="text-cyanAccent">.</span>LO
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="hover:text-cyanAccent transition-colors">Vision</a>
+                <a href="#competencies" class="hover:text-goldAccent transition-colors">Strategy</a>
+                <a href="#experience" class="hover:text-cyanAccent transition-colors">Timeline</a>
+                <a href="#impact" class="hover:text-goldAccent transition-colors">Impact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="relative z-10 pt-24">
+
+        <!-- Hero Section -->
+        <section id="about" class="min-h-[90vh] flex flex-col justify-center items-center px-6 py-20 text-center">
+            <div class="max-w-5xl w-full mx-auto flex flex-col items-center">
+               
+                <div class="space-y-6 fade-up flex flex-col items-center">
+                    <div class="inline-block px-4 py-1.5 rounded-full border border-goldAccent/30 bg-goldAccent/10 text-goldAccent text-xs font-semibold tracking-widest uppercase">
+                        Finance Leader in Transformation
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-heading font-extrabold leading-tight text-white">
+                        Kevin <span class="text-gradient-cyan">Lo</span>
+                    </h1>
+                    <p class="text-lg text-slate-400 font-light leading-relaxed max-w-3xl">
+                        A pioneering climber — progressing with purpose along established paths yet always envisioning new routes. 15+ years across Asia, Europe, and the U.S. integrating people, culture, and <strong class="text-white font-medium">AI-enabled finance</strong> to elevate organizational performance.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 pt-4">
+                        <a href="#experience" class="px-8 py-3 rounded-full bg-cyanAccent text-bgDark font-semibold hover:bg-cyan-300 transition-colors shadow-[0_0_15px_rgba(0,243,255,0.4)]">
+                            Explore Journey
+                        </a>
+                        <a href="mailto:Kevinlo0609@gmail.com" class="px-8 py-3 rounded-full border border-slate-600 hover:border-white transition-colors">
+                            Connect
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Cultural Triad & Competencies -->
+        <section id="competencies" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">The Global Leadership <span class="text-gradient-gold">Triad</span></h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Bridging the best of three distinct business cultures to drive measurable global impact.</p>
+                </div>
+
+                <!-- Triad Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                    <div class="glass p-8 rounded-2xl flex flex-col items-center text-center fade-up delay-100">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mb-6 border border-slate-600">
+                            <svg class="w-8 h-8 text-goldAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">German Discipline</h3>
+                        <p class="text-sm text-slate-400">Structure, Rigor, Execution, and Adaptation. Building robust, sustainable processes.</p>
+                    </div>
+                   
+                    <div class="glass p-8 rounded-2xl flex flex-col items-center text-center fade-up delay-200">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mb-6 border border-slate-600">
+                            <svg class="w-8 h-8 text-cyanAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">U.S. Agility</h3>
+                        <p class="text-sm text-slate-400">Speed, Innovation, and Adaptability. Navigating rapid commercial shifts seamlessly.</p>
+                    </div>
+
+                    <div class="glass p-8 rounded-2xl flex flex-col items-center text-center fade-up delay-300">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mb-6 border border-slate-600">
+                            <svg class="w-8 h-8 text-goldAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Asian Relationship</h3>
+                        <p class="text-sm text-slate-400">Trust, Harmony, and Long-Term Vision. Turning diversity into a measurable advantage.</p>
+                    </div>
+                </div>
+
+                <!-- Tech & Core Competencies -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-up">
+                    <div>
+                        <h3 class="text-2xl font-heading font-bold mb-6">Strategic Competencies</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-4 glass p-4 rounded-xl">
+                                <span class="w-2 h-2 rounded-full bg-cyanAccent"></span>
+                                <span class="text-slate-200"><strong>AI-Enabled Transformation:</strong> Positioning AI as a "new colleague". Cultivating sustainable cultural change.</span>
+                            </li>
+                            <li class="flex items-center space-x-4 glass p-4 rounded-xl">
+                                <span class="w-2 h-2 rounded-full bg-goldAccent"></span>
+                                <span class="text-slate-200"><strong>Cross-Functional Alignment:</strong> Unifying Finance, IT, and HR for holistic organizational performance.</span>
+                            </li>
+                            <li class="flex items-center space-x-4 glass p-4 rounded-xl">
+                                <span class="w-2 h-2 rounded-full bg-cyanAccent"></span>
+                                <span class="text-slate-200"><strong>Coaching & Development (SDI Certified):</strong> Building trust quickly and managing conflict constructively.</span>
+                            </li>
+                            <li class="flex items-center space-x-4 glass p-4 rounded-xl">
+                                <span class="w-2 h-2 rounded-full bg-goldAccent"></span>
+                                <span class="text-slate-200"><strong>KPI-Driven Frameworks:</strong> Delivering actionable insights through advanced data visualization.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glass p-8 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyanAccent/10 rounded-full blur-3xl group-hover:bg-cyanAccent/20 transition-all duration-700"></div>
+                        <h4 class="text-lg font-semibold text-cyanAccent mb-4 uppercase tracking-wider text-sm">Technology Arsenal</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">Agentic AI</span>
+                            <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">Copilot</span>
+                            <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">Power BI</span>
+                            <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">Tableau</span>
+                            <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">SAP / E1P</span>
+                            <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">Hyperion</span>
+                            <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm border border-slate-700">MS Loop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky Timeline Experience -->
+        <section id="experience" class="py-24 relative border-t border-white/5 bg-[#0a0a0c]/80 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">A Pioneering <span class="text-gradient-cyan">Climber</span></h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">15+ years of strategic trajectory across dynamic global markets.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-12">
+                   
+                    <!-- Left: Sticky Graphic -->
+                    <div class="hidden md:block w-1/3 relative">
+                        <div class="sticky top-32 flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-bgDark border-2 border-cyanAccent flex items-center justify-center z-10 shadow-[0_0_20px_rgba(0,243,255,0.3)]">
+                                <!-- Mountain / Climber SVG -->
+                                <svg class="w-8 h-8 text-cyanAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            </div>
+                            <div class="w-px h-[60vh] bg-gradient-to-b from-cyanAccent via-goldAccent to-transparent mt-[-20px]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Experience Cards -->
+                    <div class="w-full md:w-2/3 space-y-12">
+                       
+                        <!-- Card 1 -->
+                        <div id="exp-eur" class="glass p-8 rounded-2xl fade-up relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-cyanAccent"></div>
+                            <div class="flex flex-col md:flex-row justify-between mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Head of Finance Projects</h3>
+                                    <p class="text-goldAccent font-medium">Siemens Healthineers <span class="text-slate-500 font-light ml-2">| Great Britain & Ireland</span></p>
+                                </div>
+                                <div class="text-slate-400 text-sm mt-2 md:mt-0 bg-slate-800/50 px-3 py-1 rounded-full h-max border border-slate-700">Oct 2023 – Present</div>
+                            </div>
+                            <p class="text-slate-300 mb-4 text-sm leading-relaxed">
+                                Directly support the Zone CFO in leading an 80-member Finance organization, advancing strategic initiatives that strengthen collaboration, drive innovation, and enhance operational excellence for a $1 billion revenue healthcare business.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-400">
+                                <li class="flex items-start"><span class="text-cyanAccent mr-2">▹</span> Delivered 60+ business actions in FY24 via ACE program; sustained momentum with 50+ in FY25/26.</li>
+                                <li class="flex items-start"><span class="text-cyanAccent mr-2">▹</span> Led digital transformation with tools like Copilot, AI Agent, and MS Loop to boost efficiency.</li>
+                                <li class="flex items-start"><span class="text-cyanAccent mr-2">▹</span> Certified core strengths facilitator, enhancing cross-functional team performance.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="glass p-8 rounded-2xl fade-up relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-goldAccent"></div>
+                            <div class="flex flex-col md:flex-row justify-between mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Business Analytics Manager</h3>
+                                    <p class="text-goldAccent font-medium">Siemens Infrastructure <span class="text-slate-500 font-light ml-2">| Erlangen, Germany</span></p>
+                                </div>
+                                <div class="text-slate-400 text-sm mt-2 md:mt-0 bg-slate-800/50 px-3 py-1 rounded-full h-max border border-slate-700">Jul 2021 – Sep 2023</div>
+                            </div>
+                            <p class="text-slate-300 mb-4 text-sm leading-relaxed">
+                                Served as a global business partner and project manager for premium reporting & data analytics for a $1 billion global productivity program.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-400">
+                                <li class="flex items-start"><span class="text-goldAccent mr-2">▹</span> Streamlined period-end close reporting by automating Power BI processes, freeing ~80 hours monthly capacity.</li>
+                                <li class="flex items-start"><span class="text-goldAccent mr-2">▹</span> Led global dashboard training, increasing utilization and engagement by 50%+.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div id="exp-usa" class="glass p-8 rounded-2xl fade-up relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-cyanAccent"></div>
+                            <div class="flex flex-col md:flex-row justify-between mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Digitalization Lead (CAP) & Performance Controller</h3>
+                                    <p class="text-goldAccent font-medium">Siemens <span class="text-slate-500 font-light ml-2">| Germany & USA</span></p>
+                                </div>
+                                <div class="text-slate-400 text-sm mt-2 md:mt-0 bg-slate-800/50 px-3 py-1 rounded-full h-max border border-slate-700">Jan 2016 – Jun 2021</div>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-400">
+                                <li class="flex items-start"><span class="text-cyanAccent mr-2">▹</span> Managed finance controlling & digitalization for a $750M order factory in Frankfurt.</li>
+                                <li class="flex items-start"><span class="text-cyanAccent mr-2">▹</span> Reduced annual master material update time by 60% via Tableau dashboards.</li>
+                                <li class="flex items-start"><span class="text-cyanAccent mr-2">▹</span> Drove Hyperion forecasting platform implementation in NY, reducing data upload time from 5 to 2 days.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div id="exp-asia" class="glass p-8 rounded-2xl fade-up relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-goldAccent"></div>
+                            <div class="flex flex-col md:flex-row justify-between mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Asia Pacific Experience</h3>
+                                    <p class="text-goldAccent font-medium">Lite-On Tech & CyberAgent <span class="text-slate-500 font-light ml-2">| Taiwan & Japan</span></p>
+                                </div>
+                                <div class="text-slate-400 text-sm mt-2 md:mt-0 bg-slate-800/50 px-3 py-1 rounded-full h-max border border-slate-700">2012 – 2014</div>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-400">
+                                <li class="flex items-start"><span class="text-goldAccent mr-2">▹</span> Generated $200k FX position gains monthly through hedging (Lite-On, Taiwan).</li>
+                                <li class="flex items-start"><span class="text-goldAccent mr-2">▹</span> Created targeted campaigns increasing daily revenue 200-300% through user behavior analytics (CyberAgent, Tokyo).</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Measurable Impact (Counters) -->
+        <section id="impact" class="py-24 relative overflow-hidden">
+            <!-- Background Glow -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 bg-goldAccent/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Measurable <span class="text-gradient-gold">Impact</span></h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Value creation driven by structured KPIs, analytical insights, and empowered teams.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Counter 1 -->
+                    <div class="glass p-6 rounded-2xl text-center fade-up delay-100">
+                        <div class="text-4xl md:text-5xl font-heading font-bold text-cyanAccent mb-2">
+                            $<span class="counter" data-target="1">0</span>B+
+                        </div>
+                        <p class="text-sm text-slate-400 font-medium tracking-wide uppercase">Productivity Program Managed</p>
+                    </div>
+                   
+                    <!-- Counter 2 -->
+                    <div class="glass p-6 rounded-2xl text-center fade-up delay-200">
+                        <div class="text-4xl md:text-5xl font-heading font-bold text-goldAccent mb-2">
+                            <span class="counter" data-target="12663">0</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-medium tracking-wide uppercase">Hours Saved via HPS</p>
+                    </div>
+
+                    <!-- Counter 3 -->
+                    <div class="glass p-6 rounded-2xl text-center fade-up delay-300">
+                        <div class="text-4xl md:text-5xl font-heading font-bold text-cyanAccent mb-2">
+                            <span class="counter" data-target="300">0</span>%
+                        </div>
+                        <p class="text-sm text-slate-400 font-medium tracking-wide uppercase">Campaign Revenue Growth</p>
+                    </div>
+
+                    <!-- Counter 4 -->
+                    <div class="glass p-6 rounded-2xl text-center fade-up delay-400">
+                        <div class="text-4xl md:text-5xl font-heading font-bold text-goldAccent mb-2">
+                            <span class="counter" data-target="110">0</span>+
+                        </div>
+                        <p class="text-sm text-slate-400 font-medium tracking-wide uppercase">Business Actions Delivered</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-white/10 bg-[#0a0a0c] py-12 text-center mt-12 relative z-10">
+            <div class="max-w-7xl mx-auto px-6">
+                <p class="text-2xl font-heading font-light text-white mb-6">
+                    "Transformation happens when people are <span class="text-cyanAccent font-medium">empowered</span>."
+                </p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="mailto:Kevinlo0609@gmail.com" class="text-slate-400 hover:text-cyanAccent transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-goldAccent transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+                <p class="text-sm text-slate-600">© 2026 Kevin Lo. All Rights Reserved. US & UK Locations.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Vanilla JS Interactions -->
+    <script>
+        // --- 1. Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#0a0a0c]/90', 'shadow-lg');
+                navbar.classList.remove('border-white/5');
+            } else {
+                navbar.classList.remove('bg-[#0a0a0c]/90', 'shadow-lg');
+                navbar.classList.add('border-white/5');
+            }
+        });
+
+        // --- 2. Intersection Observer for Fade-Up ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Check if it contains a counter
+                    const counters = entry.target.querySelectorAll('.counter');
+                    if (counters.length > 0) {
+                        counters.forEach(counter => animateCounter(counter));
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- 3. Animated Counters ---
+        function animateCounter(counter) {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // ms
+            const increment = target / (duration / 16); // 60fps approx
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.innerText = Math.ceil(current).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target.toLocaleString();
+                }
+            };
+            updateCounter();
+        }
+
+        // --- 4. Interactive Data Particle Network (Canvas) ---
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+       
+        let width, height;
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 150 };
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
+        }
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2 + 0.5;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.density = (Math.random() * 30) + 1;
+               
+                // Colors: Mix of Cyan and faint gray
+                this.color = Math.random() > 0.8 ? 'rgba(0, 243, 255, 0.5)' : 'rgba(255, 255, 255, 0.15)';
+               
+                // Slow drift
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                // Natural drift
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x > width || this.x < 0) this.vx = -this.vx;
+                if (this.y > height || this.y < 0) this.vy = -this.vy;
+
+                // Mouse interaction
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let maxDistance = mouse.radius;
+                    let force = (maxDistance - distance) / maxDistance;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+
+                    if (distance < mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    }
+                }
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            // Amount of particles scales with screen width
+            let numberOfParticles = (width * height) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
+                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                   
+                    if (distance < (width/10) * (height/10)) {
+                        opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = `rgba(0, 243, 255, ${opacityValue * 0.15})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            connect();
+        }
+
+        // Initialize Canvas Animation
+        resize();
+        animate();
+    </script>
+</body>
+</html>
